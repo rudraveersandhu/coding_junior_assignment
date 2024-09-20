@@ -743,212 +743,217 @@ class _PopularCoursesScreenState extends State<PopularCoursesScreen> {
                 height: courses_height + 50,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  itemCount: 10, // Number of items in the list
+                  itemCount: 5, // Number of items in the list
                   itemBuilder: (context, index) {
-                    return Container(
-                        height: courses_width,
-                        width: courses_width * 1.5,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10),
-                          color: Colors.white,),
+                    return GestureDetector(
+                      onTap: (){
+                        Get.to(() => CourseDetailScreen(course: title_arr[index]));
+                      },
+                      child: Container(
+                          height: courses_width,
+                          width: courses_width * 1.5,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Colors.white,),
 
-                        margin: EdgeInsets.all(8.0),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
+                          margin: EdgeInsets.all(8.0),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
 
-                            Container(
+                              Container(
 
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Row(
-                                    children: [
-                                      Padding(
-                                        padding: const EdgeInsets.only(top: 10.0,left: 30),
-                                        child: Container(
-                                            width: courses_width/3 ,
-                                            child: Image(image: AssetImage('assets/${cor_arr[index]}'))
-                                        ),
-                                      ),
-
-                                      Column(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: [
-                                          Padding(
-                                            padding: const EdgeInsets.only(left: 30,top: 30.0),
-                                            child: Container(
-                                              width: courses_width * .9 ,
-                                              child: Text(title_arr[index],
-                                                style: TextStyle(
-                                                    fontSize: title_font_size
-                                                ),),
-                                            ),
-                                          ),
-                                          Container(
-
-                                            width: courses_width   ,
-                                            child: Row(
-                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                              children: [
-                                                Padding(
-                                                  padding: const EdgeInsets.only(left: 25.0,bottom: 20,top: 10),
-                                                  child: Row(
-                                                    children: [
-                                                      Icon(
-                                                        Icons.star,
-                                                        color: Colors.amber,
-                                                        size: icon_size,
-                                                      ),
-                                                      Text("4.8",
-                                                        style: TextStyle(
-                                                            color: Colors.grey.shade700
-                                                        ),
-                                                      ),
-                                                      Text(" (230)",
-                                                        style: TextStyle(
-                                                            color: Colors.grey.shade700,
-                                                            fontSize: 12
-                                                        ),
-                                                      )
-                                                    ],
-                                                  ),
-                                                ),
-                                                Padding(
-                                                  padding: const EdgeInsets.only(right: 20.0,bottom: 20,top: 10),
-                                                  child: Row(
-                                                    children: [
-                                                      Icon(
-                                                        CupertinoIcons.play_circle,
-                                                        color: Colors.grey.shade600,
-                                                        size: icon_size,
-                                                      ),
-                                                      Text(" 30 Lessons",
-                                                        style: TextStyle(
-                                                          color: Colors.grey.shade700,
-
-                                                        ),
-                                                      ),
-
-                                                    ],
-                                                  ),
-                                                )
-                                              ],
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-
-                                    ],
-                                  ),
-                                  Divider(),
-
-                                  Padding(
-                                    padding: dash_width > 1000 ? EdgeInsets.only(top: 10.0) : EdgeInsets.only(top: 5.0),
-                                    child: Row(
-                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Row(
                                       children: [
                                         Padding(
-                                          padding: const EdgeInsets.only(left: 20.0),
+                                          padding: const EdgeInsets.only(top: 10.0,left: 30),
                                           child: Container(
-                                            width: courses_width * 0.9,
-                                            child: Row(
-                                              children: [
-                                                Container(
-                                                  height: circle_rad * 2,
-                                                  width: circle_rad * 6.3,
-                                                  child: Stack(
-                                                    children: [
-                                                      Positioned(
-                                                        top: 0,
-                                                        left: 5,
-                                                        child: CircleAvatar(
-                                                          backgroundImage: AssetImage('assets/${pfp_arr[1]}'),
-                                                          radius: circle_rad,
-                                                        ),
-                                                      ),
-                                                      Positioned(
-                                                        top: 0,
-                                                        left: 25,
-                                                        child: CircleAvatar(
-                                                          backgroundImage: AssetImage('assets/${pfp_arr[2]}'),
-                                                          radius: circle_rad,
-                                                        ),
-                                                      ),
-                                                      Positioned(
-                                                        top: 0,
-                                                        left: 45,
-                                                        child: CircleAvatar(
-                                                          backgroundImage: AssetImage('assets/${pfp_arr[3]}'),
-                                                          radius: circle_rad,
-                                                        ),
-                                                      ),
-                                                      Positioned(
-                                                        top: 0,
-                                                        left: 65,
-                                                        child: CircleAvatar(
-                                                          radius: circle_rad,
-                                                          //backgroundImage: AssetImage('assets/pfp.jpg'),
-                                                          backgroundColor: const Color.fromRGBO(184, 221, 106, 1),
-                                                          child: const Center(
-                                                            child: Text("+20",
-                                                              style: TextStyle(
-                                                                  fontSize: 13,
-                                                                  color: Colors.white
-                                                              ),
-                                                            ),
-                                                          ),
-
-                                                        ),
-                                                      ),
-
-                                                    ],
-                                                  ),
-                                                ),
-                                                const Padding(
-                                                  padding: EdgeInsets.only(left: 12.0),
-                                                  child: Text("Participants",
-                                                    style: TextStyle(
-                                                        color: Colors.black,
-                                                        fontSize: 16,
-                                                        fontWeight: FontWeight.w300
-                                                    ),
-                                                  ),
-                                                )
-
-                                              ],
-                                            ),
+                                              width: courses_width/3 ,
+                                              child: Image(image: AssetImage('assets/${cor_arr[index]}'))
                                           ),
                                         ),
-                                        Padding(
-                                          padding: const EdgeInsets.only(right: 20.0),
-                                          child: Container(
-                                            height: 40,
-                                            width: 100,
-                                            decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.circular(8),
-                                              color: const Color.fromRGBO(184, 221, 106, 1),
+
+                                        Column(
+                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          children: [
+                                            Padding(
+                                              padding: const EdgeInsets.only(left: 30,top: 30.0),
+                                              child: Container(
+                                                width: courses_width * .9 ,
+                                                child: Text(title_arr[index],
+                                                  style: TextStyle(
+                                                      fontSize: title_font_size
+                                                  ),),
+                                              ),
                                             ),
-                                            child: const Center(
-                                              child: Text("Enroll",
-                                                style: TextStyle(
-                                                    fontSize: 16,
-                                                    color: Colors.white,
-                                                    fontWeight: FontWeight.w500
-                                                ),
+                                            Container(
+
+                                              width: courses_width   ,
+                                              child: Row(
+                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                children: [
+                                                  Padding(
+                                                    padding: const EdgeInsets.only(left: 25.0,bottom: 20,top: 10),
+                                                    child: Row(
+                                                      children: [
+                                                        Icon(
+                                                          Icons.star,
+                                                          color: Colors.amber,
+                                                          size: icon_size,
+                                                        ),
+                                                        Text("4.8",
+                                                          style: TextStyle(
+                                                              color: Colors.grey.shade700
+                                                          ),
+                                                        ),
+                                                        Text(" (230)",
+                                                          style: TextStyle(
+                                                              color: Colors.grey.shade700,
+                                                              fontSize: 12
+                                                          ),
+                                                        )
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding: const EdgeInsets.only(right: 20.0,bottom: 20,top: 10),
+                                                    child: Row(
+                                                      children: [
+                                                        Icon(
+                                                          CupertinoIcons.play_circle,
+                                                          color: Colors.grey.shade600,
+                                                          size: icon_size,
+                                                        ),
+                                                        Text(" 30 Lessons",
+                                                          style: TextStyle(
+                                                            color: Colors.grey.shade700,
+
+                                                          ),
+                                                        ),
+
+                                                      ],
+                                                    ),
+                                                  )
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+
+                                      ],
+                                    ),
+                                    Divider(),
+
+                                    Padding(
+                                      padding: dash_width > 1000 ? EdgeInsets.only(top: 10.0) : EdgeInsets.only(top: 5.0),
+                                      child: Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Padding(
+                                            padding: const EdgeInsets.only(left: 20.0),
+                                            child: Container(
+                                              width: courses_width * 0.9,
+                                              child: Row(
+                                                children: [
+                                                  Container(
+                                                    height: circle_rad * 2,
+                                                    width: circle_rad * 6.3,
+                                                    child: Stack(
+                                                      children: [
+                                                        Positioned(
+                                                          top: 0,
+                                                          left: 5,
+                                                          child: CircleAvatar(
+                                                            backgroundImage: AssetImage('assets/${pfp_arr[1]}'),
+                                                            radius: circle_rad,
+                                                          ),
+                                                        ),
+                                                        Positioned(
+                                                          top: 0,
+                                                          left: 25,
+                                                          child: CircleAvatar(
+                                                            backgroundImage: AssetImage('assets/${pfp_arr[2]}'),
+                                                            radius: circle_rad,
+                                                          ),
+                                                        ),
+                                                        Positioned(
+                                                          top: 0,
+                                                          left: 45,
+                                                          child: CircleAvatar(
+                                                            backgroundImage: AssetImage('assets/${pfp_arr[3]}'),
+                                                            radius: circle_rad,
+                                                          ),
+                                                        ),
+                                                        Positioned(
+                                                          top: 0,
+                                                          left: 65,
+                                                          child: CircleAvatar(
+                                                            radius: circle_rad,
+                                                            //backgroundImage: AssetImage('assets/pfp.jpg'),
+                                                            backgroundColor: const Color.fromRGBO(184, 221, 106, 1),
+                                                            child: const Center(
+                                                              child: Text("+20",
+                                                                style: TextStyle(
+                                                                    fontSize: 13,
+                                                                    color: Colors.white
+                                                                ),
+                                                              ),
+                                                            ),
+
+                                                          ),
+                                                        ),
+
+                                                      ],
+                                                    ),
+                                                  ),
+                                                  const Padding(
+                                                    padding: EdgeInsets.only(left: 12.0),
+                                                    child: Text("Participants",
+                                                      style: TextStyle(
+                                                          color: Colors.black,
+                                                          fontSize: 16,
+                                                          fontWeight: FontWeight.w300
+                                                      ),
+                                                    ),
+                                                  )
+
+                                                ],
                                               ),
                                             ),
                                           ),
-                                        )
-                                      ],
-                                    ),
-                                  )
-                                ],
+                                          Padding(
+                                            padding: const EdgeInsets.only(right: 20.0),
+                                            child: Container(
+                                              height: 40,
+                                              width: 100,
+                                              decoration: BoxDecoration(
+                                                borderRadius: BorderRadius.circular(8),
+                                                color: const Color.fromRGBO(184, 221, 106, 1),
+                                              ),
+                                              child: const Center(
+                                                child: Text("Enroll",
+                                                  style: TextStyle(
+                                                      fontSize: 16,
+                                                      color: Colors.white,
+                                                      fontWeight: FontWeight.w500
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                    )
+                                  ],
+                                ),
                               ),
-                            ),
-                          ],
-                        )
+                            ],
+                          )
+                      ),
                     );
                   },
                 ),
